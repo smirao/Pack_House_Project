@@ -1,0 +1,54 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: #4c4c4c ;
+}
+
+h1 {
+    color:white;
+}
+
+.outline-div {
+    margin: auto;
+    padding: 10px;
+    border-radius: 25px;
+    width: 60%;
+    border: 2px solid white;
+
+}
+
+.center-div {
+    margin: auto;
+    width: 100%;
+    border: 2px solid white;
+    background-color: lightgray;
+    padding: 0px;
+    border-radius: 25px;
+
+  }
+
+.progress-in {
+    width:5%;
+    background-color: #6fc0db;
+    border-radius: 25px;
+
+}
+
+.progress-text {
+    color:lightgray;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size:2em;
+}
+
+.outer-text {
+    color:lightgray;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size:2em;
+}

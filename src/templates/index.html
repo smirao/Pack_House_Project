@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Main Page{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+
+<div id="bin"></div>
+
+
+{% endblock %}
+{% block scripts %}
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
+{% endblock %}
