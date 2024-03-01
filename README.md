@@ -2,6 +2,10 @@
 
 ## Terminal Commands
 ```
-git clone
-cd 
+git clonehttps://github.com/smirao/Pack_House_Project.git
+cd Pack_House_Project
+python3 -m venv venv
+source venv/bin/activate
+cd src
+python app.py
 ```
