@@ -52,3 +52,26 @@ h1 {
     font-weight: bold;
     font-size:2em;
 }
+
+.button {
+    background-color: #6fc0db; 
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    width:100%;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2em;
+    cursor: pointer;
+    border-radius: 8px;
+    
+  }
+
+  .contain {
+    width:40%;
+    margin: auto;
+    padding: 10px;
+  }
+

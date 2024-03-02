@@ -74,5 +74,5 @@ window.addEventListener("load", (event) => {
         }).then((data) => {
             updateBars(data)
         });
-    }, 5000);
+    }, 2000);
 });
