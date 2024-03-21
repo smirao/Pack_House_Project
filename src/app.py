@@ -1,10 +1,12 @@
 # Package imports 
-import RPi.GPIO as GPIO
-import flask, json
+import lib16inpind
+import flask
 from flask import render_template, redirect
+import json
+import threading
 
 # File imports
-import GPIO_interface
+import Sensor_interface
 
 # Start app
 app = flask.Flask(__name__)
@@ -17,6 +19,8 @@ def to_default():
     with open('data.json', 'w') as file:
         file.write(json.dumps(data, indent=4))
 
+def run_interface():
+    interface = Sensor_interface.Sensor_Iface()
 
 # Routes 
 @app.route("/reset", methods = ['GET'])
@@ -34,16 +38,13 @@ def get_data():
 
 @app.route("/", methods = ['GET'])
 def index():
+    flask.g.title="Sweet P.O.T.A.T.O"
     return render_template("index.html")
 
 
 if __name__ == "__main__":
-    to_default()
-    
-    # THE ONLY PURPOSE of GPIO_interface.GPIO_Iface is to monitor GPIO pins
-    # and edit data in data.json which should be consistant with the formating
-    # in the data variable initiated within the to_default function 
-    # GPIO_interface.GPIO_Iface is independent of all other functionality
-    GPIO.setmode(GPIO.BCM) # Set GPIO mode 
-    interface = GPIO_interface.GPIO_Iface(GPIO) # Initialize GPIO_Interface
-    app.run(host="0.0.0.0", port=1234, debug=True)
+    # Start interface in a separate thread
+    interface_thread = threading.Thread(target=run_interface)
+    interface_thread.start()
+    # Start Flask app
+    app.run(host="0.0.0.0", port=1234, debug=False)
