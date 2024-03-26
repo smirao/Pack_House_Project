@@ -31,11 +31,14 @@ const editBar = (id, numerator, denomerator) => {
     if (percent <= 5){
         innerdiv.style.width = "5%";
         outerp.innerHTML = `${outerp.innerHTML.split(" ")[0]} ${numerator}/${denomerator}`;
-    } else {
+    } else if (percent <= 100) {
         innerdiv.style.width = `${percent}%`;
         innerdiv.innerHTML = `<p class="outer-text">${percent}%</p>`
         outerp.innerHTML = `${outerp.innerHTML.split(" ")[0]} ${numerator}/${denomerator}`;
-
+    } else {
+        innerdiv.style.width = `100%`;
+        innerdiv.innerHTML = `<p class="outer-text">100%</p>`
+        outerp.innerHTML = `${outerp.innerHTML.split(" ")[0]} ${numerator}/${denomerator}`;
     }
 }
 
