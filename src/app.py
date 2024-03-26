@@ -11,7 +11,8 @@ app = flask.Flask(__name__)
 # functions
 def to_default():
     data = {
-        "BEAM": [0,400]
+        "BEAM": [0,400],
+        "CASES": [0,400]
     }
     with open('data.json', 'w') as file:
         file.write(json.dumps(data, indent=4))
@@ -38,8 +39,11 @@ def index():
 
 
 if __name__ == "__main__":
+    to_default()
+    sensor_cases = Sensor_Iface.Sensor("CASES", 0, 1)
+    sensor_bins = Sensor_Iface.Sensor("BINS", 0, 2, delay=15)
     # Start interface in a separate thread
-    interface_thread = threading.Thread(target=Sensor_Iface.Sensor_Iface)
-    interface_thread.start()
+    #interface_thread = threading.Thread(target=Sensor_Iface.Sensor_Iface)
+    #interface_thread.start()
     # Start Flask app
     app.run(host="0.0.0.0", port=1234, debug=True)
